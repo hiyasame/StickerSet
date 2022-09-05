@@ -1,4 +1,4 @@
-# AmeProjectTemplate-Android
+# StickerSet
 
 > 自用安卓项目模板，开箱即用
 > 
