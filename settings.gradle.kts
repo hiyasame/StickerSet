@@ -22,7 +22,7 @@ dependencyResolutionManagement {
     mavenCentral()
   }
 }
-rootProject.name = "AmeProjectTemplate-Android"
+rootProject.name = "StickerSet"
 
 // 测试使用，排除掉不需要的模块
 val excludeList = listOf<String>(
