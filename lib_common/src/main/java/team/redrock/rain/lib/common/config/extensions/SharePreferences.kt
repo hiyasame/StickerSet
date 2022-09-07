@@ -29,3 +29,4 @@ val defaultSp: SharedPreferences
   get() = BaseApp.appContext.getSharedPreferences("defaultSp", Context.MODE_PRIVATE)
 
 const val SP_TEST_DEMO = "这只是一个用于演示的例子"
+const val SP_TOKEN = "token"

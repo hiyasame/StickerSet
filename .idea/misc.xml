@@ -3,8 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="module_main/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.211" />
+        <entry key="module_main/src/main/res/drawable/ic_baseline_search_24.xml" value="0.211" />
+        <entry key="module_main/src/main/res/drawable/ic_baseline_vpn_key_24.xml" value="0.211" />
         <entry key="module_main/src/main/res/layout/activity_main.xml" value="0.26902173913043476" />
+        <entry key="module_main/src/main/res/layout/fragment_category.xml" value="0.26902173913043476" />
+        <entry key="module_main/src/main/res/layout/fragment_settings.xml" value="0.26902173913043476" />
+        <entry key="module_main/src/main/res/layout/item_category.xml" value="0.125" />
+        <entry key="module_main/src/main/res/layout/item_category_dialog.xml" value="0.2028688524590164" />
         <entry key="module_main/src/main/res/menu/bottom_nav.xml" value="0.315625" />
+        <entry key="module_main/src/main/res/menu/toolbar_menu.xml" value="0.315625" />
       </map>
     </option>
   </component>

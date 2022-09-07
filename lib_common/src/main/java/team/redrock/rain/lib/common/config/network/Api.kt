@@ -1,7 +1,5 @@
 package team.redrock.rain.lib.common.config.network
 
-import kim.bifrost.stickerset.lib.common.BuildConfig
-
 /**
  * ...
  * @author 985892345 (Guo Xiangrui)
@@ -9,7 +7,7 @@ import kim.bifrost.stickerset.lib.common.BuildConfig
  * @date 2022/5/29 22:33
  */
 
-const val DEBUG_URL = "https://www.wanandroid.com"
+const val DEBUG_URL = "https://api.telegram.org/"
 const val RELEASE_URL = DEBUG_URL
 
-fun getBaseUrl() = if (BuildConfig.DEBUG) DEBUG_URL else RELEASE_URL
+fun getBaseUrl() = DEBUG_URL

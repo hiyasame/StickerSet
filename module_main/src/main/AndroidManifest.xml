@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="team.redrock.stickerset.main">
 
-    <application>
+    <application
+        android:name=".StickerSetApp">
         <activity
             android:name="team.redrock.stickerset.main.screen.main.MainActivity"
             tools:theme="@style/Theme.Material3.Light"

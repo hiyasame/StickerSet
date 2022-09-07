@@ -1,6 +1,4 @@
-import com.ndhzs.build.logic.depend.dependAndroidKtx
-import com.ndhzs.build.logic.depend.dependAndroidView
-import com.ndhzs.build.logic.depend.dependLifecycleKtx
+import com.ndhzs.build.logic.depend.*
 
 plugins {
     id("module-manager")
@@ -9,3 +7,8 @@ plugins {
 dependAndroidView()
 dependAndroidKtx()
 dependLifecycleKtx()
+dependNetwork()
+dependNavigation()
+dependGlide()
+dependRxjava()
+dependRoom()
