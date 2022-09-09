@@ -7,12 +7,19 @@
         <entry key="module_main/src/main/res/drawable/ic_baseline_search_24.xml" value="0.211" />
         <entry key="module_main/src/main/res/drawable/ic_baseline_vpn_key_24.xml" value="0.211" />
         <entry key="module_main/src/main/res/layout/activity_main.xml" value="0.26902173913043476" />
+        <entry key="module_main/src/main/res/layout/activity_sticker_set.xml" value="0.26902173913043476" />
         <entry key="module_main/src/main/res/layout/fragment_category.xml" value="0.26902173913043476" />
         <entry key="module_main/src/main/res/layout/fragment_settings.xml" value="0.26902173913043476" />
         <entry key="module_main/src/main/res/layout/item_category.xml" value="0.125" />
         <entry key="module_main/src/main/res/layout/item_category_dialog.xml" value="0.2028688524590164" />
+        <entry key="module_main/src/main/res/layout/item_sticker.xml" value="0.26902173913043476" />
+        <entry key="module_main/src/main/res/layout/layout_category_dialog.xml" value="0.15520833333333334" />
+        <entry key="module_main/src/main/res/layout/layout_progress_bar.xml" value="0.26902173913043476" />
+        <entry key="module_main/src/main/res/layout/layout_set_token_dialog.xml" value="0.375" />
         <entry key="module_main/src/main/res/menu/bottom_nav.xml" value="0.315625" />
+        <entry key="module_main/src/main/res/menu/sticker_set_toolbar_menu.xml" value="0.315625" />
         <entry key="module_main/src/main/res/menu/toolbar_menu.xml" value="0.315625" />
+        <entry key="module_main/src/main/res/xml/filepaths.xml" value="0.15416666666666667" />
       </map>
     </option>
   </component>
@@ -21,5 +28,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.125" />
+      </ProjectState>
+    </option>
   </component>
 </project>

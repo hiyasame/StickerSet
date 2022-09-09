@@ -21,4 +21,5 @@ sealed class CategoryViewAction : ViewAction {
 sealed class CategoryViewEvent : ViewEvent {
     object ShowAddDialog : CategoryViewEvent()
     class ShowSnackBar(val content: String) : CategoryViewEvent()
+    class ShowDownloadingProcess(val cur: Int, val total: Int) : CategoryViewEvent()
 }

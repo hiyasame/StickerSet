@@ -5,3 +5,4 @@
 ## Tech-Stack
 
 - MVI架构
+- jetpack navigation (用得不多)

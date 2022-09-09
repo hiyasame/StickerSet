@@ -14,20 +14,29 @@
         android:layout_height="wrap_content">
 
         <ProgressBar
-            tools:visibility="gone"
+            android:visibility="gone"
             android:id="@+id/progress_bar"
             android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="10dp" />
-        
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/siv_category"
-            app:shapeAppearance="@style/CardStyle"
-            tools:src="@drawable/jisato"
-            android:scaleType="centerCrop"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                app:layout_constraintDimensionRatio="1.5"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/siv_category"
+                app:shapeAppearance="@style/CardStyle"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/jisato"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/tv_title"

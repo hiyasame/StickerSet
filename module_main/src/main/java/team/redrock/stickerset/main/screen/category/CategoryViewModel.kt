@@ -2,6 +2,7 @@ package team.redrock.stickerset.main.screen.category
 
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -12,12 +13,20 @@ import team.redrock.stickerset.main.utils.FetchStatus
 class CategoryViewModel :
     MVIViewModel<CategoryViewAction, CategoryViewEvent, CategoryViewStates>() {
 
-    override val mutableViewState: MutableStateFlow<CategoryViewStates>
-        get() = MutableStateFlow(CategoryViewStates())
+    override val mutableViewState: MutableStateFlow<CategoryViewStates> = MutableStateFlow(CategoryViewStates())
 
     private var observeStickerSetChangeJob: Job? = null
+    private val progressFlow = MutableSharedFlow<Pair<Int, Int>>()
 
-    override suspend fun dispatch(action: CategoryViewAction) {
+    init {
+        viewModelScope.launch {
+            progressFlow.collectLatest { (cur, total) ->
+                mutableViewEvents.emit(CategoryViewEvent.ShowDownloadingProcess(cur, total))
+            }
+        }
+    }
+
+    override fun dispatch(action: CategoryViewAction) {
         when (action) {
             CategoryViewAction.OnSwipeRefresh, CategoryViewAction.FetchData -> fetchStickers()
             CategoryViewAction.FabClicked -> fabClicked()
@@ -27,7 +36,7 @@ class CategoryViewModel :
 
     private fun fetchStickerSets(name: String) {
         viewModelScope.launch {
-            TelegramRepository.getStickerSet(name)
+            TelegramRepository.getStickerSet(name, progressFlow)
                 .onFailure {
                     mutableViewEvents.emit(CategoryViewEvent.ShowSnackBar(it.message.toString()))
                 }.onSuccess {

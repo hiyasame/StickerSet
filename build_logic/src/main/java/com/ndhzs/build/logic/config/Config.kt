@@ -11,7 +11,7 @@ import org.gradle.api.Project
  * @date 2022/5/26 15:13
  */
 object Config {
-  const val minSdk = 21
+  const val minSdk = 26
   const val targetSdk = 31
   const val compileSdk = 31
   
@@ -20,8 +20,8 @@ object Config {
   
   fun getApplicationId(project: Project): String {
     return when (project.name) {
-      "module_app" -> "com.ndhzs.wanandroid"
-      else -> "com.ndhzs.wanandroid.${project.name}"
+      "module_app" -> "team.redrock.rain.stickerset"
+      else -> "team.redrock.rain.stickerset.${project.name}"
     }
   }
 }

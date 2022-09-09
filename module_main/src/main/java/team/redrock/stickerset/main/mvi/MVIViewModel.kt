@@ -29,7 +29,7 @@ abstract class MVIViewModel<VA: ViewAction, VE: ViewEvent, VS: ViewState> : View
      *
      * @param action
      */
-    abstract suspend fun dispatch(action: VA)
+    abstract fun dispatch(action: VA)
 
     protected inline fun setState(reducer: VS.() -> VS) {
         mutableViewState.value = mutableViewState.value.reducer()

@@ -9,4 +9,5 @@
     <string name="telegram_bot_api_authentication">Telegram Bot API Authentication</string>
     <string name="others">Others</string>
     <string name="about">About</string>
+    <string name="delete">delete</string>
 </resources>

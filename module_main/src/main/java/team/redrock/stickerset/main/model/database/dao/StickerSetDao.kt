@@ -12,7 +12,7 @@ interface StickerSetDao {
     fun fetchStickerSets(): Flow<List<StickerSetEntity>>
 
     @Query("SELECT * FROM sticker WHERE pid = :pid")
-    fun fetchStickersByPid(pid: Int): Flow<List<StickerEntity>>
+    suspend fun fetchStickersByPid(pid: Int): List<StickerEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addStickerSetEntity(entity: StickerSetEntity): Long

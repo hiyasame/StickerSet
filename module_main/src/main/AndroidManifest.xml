@@ -3,17 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="team.redrock.stickerset.main">
 
-    <application
-        android:name=".StickerSetApp">
+    <application>
+        <provider
+            android:authorities="team.redrock.stickerset.file_provider"
+            android:name="androidx.core.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths"/>
+        </provider>
+        
         <activity
             android:name="team.redrock.stickerset.main.screen.main.MainActivity"
-            tools:theme="@style/Theme.Material3.Light"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".screen.stickerset.StickerSetActivity"
+            android:exported="true">
         </activity>
     </application>
 

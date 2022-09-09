@@ -11,18 +11,20 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import team.redrock.rain.lib.common.config.extensions.gone
-import team.redrock.rain.lib.common.config.extensions.visible
+import team.redrock.rain.lib.common.extensions.gone
+import team.redrock.rain.lib.common.extensions.visible
 import team.redrock.stickerset.main.R
 import team.redrock.stickerset.main.databinding.ItemCategoryBinding
-import team.redrock.stickerset.main.model.data.StickerSet
 import team.redrock.stickerset.main.model.database.entity.StickerSetEntity
+import team.redrock.stickerset.main.utils.autoFitWidth
 import java.io.File
 
-class CategoryRvAdapter : ListAdapter<StickerSetEntity, CategoryRvAdapter.Holder>(ItemDiffCallBack()) {
+class CategoryRvAdapter(private val onClick: (entity: StickerSetEntity) -> Unit) : ListAdapter<StickerSetEntity, CategoryRvAdapter.Holder>(ItemDiffCallBack()) {
     inner class Holder(val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
-
+            binding.root.setOnClickListener {
+                onClick(getItem(bindingAdapterPosition))
+            }
         }
     }
 
@@ -36,6 +38,7 @@ class CategoryRvAdapter : ListAdapter<StickerSetEntity, CategoryRvAdapter.Holder
             progressBar.visible()
             tvId.text = data.name
             tvTitle.text = data.title
+            data.imgPath
             Glide.with(sivCategory)
                 .load(data.imgPath?.let { File(it) })
                 .placeholder(R.drawable.ic_baseline_error_24)
@@ -60,7 +63,6 @@ class CategoryRvAdapter : ListAdapter<StickerSetEntity, CategoryRvAdapter.Holder
                         progressBar.gone()
                         return false
                     }
-
                 }).into(sivCategory)
         }
     }

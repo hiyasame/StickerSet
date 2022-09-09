@@ -3,7 +3,7 @@ package team.redrock.stickerset.main.model.network
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.create
-import team.redrock.rain.lib.common.config.network.ApiGenerator
+import team.redrock.rain.lib.common.network.ApiGenerator
 
 object RetrofitHelper {
     private val retrofit by lazy { initRetrofit() }

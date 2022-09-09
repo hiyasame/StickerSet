@@ -12,12 +12,12 @@ interface MVIPage<VE: ViewEvent, VS: ViewState> {
      * 注册Effect
      * 在里面使用useEffect
      */
-    suspend fun StateFlow<VS>.launchEffects()
+    fun StateFlow<VS>.launchEffects()
 
     /**.
      * 渲染ViewEvent
      *
      * @param viewEvent 事件
      */
-    suspend fun renderViewEvent(viewEvent: VE)
+    fun renderViewEvent(viewEvent: VE)
 }
