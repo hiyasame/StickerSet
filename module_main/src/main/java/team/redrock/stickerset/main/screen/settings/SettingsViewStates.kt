@@ -14,6 +14,5 @@ sealed class SettingsViewAction : ViewAction {
 
 sealed class SettingsViewEvent : ViewEvent {
     object ShowTokenDialog : SettingsViewEvent()
-    object JumpToAboutPage : SettingsViewEvent()
     class ShowSnackBar(val content: String) : SettingsViewEvent()
 }

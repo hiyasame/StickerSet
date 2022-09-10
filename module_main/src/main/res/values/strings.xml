@@ -10,4 +10,8 @@
     <string name="others">Others</string>
     <string name="about">About</string>
     <string name="delete">delete</string>
+    <string name="stickerset">StickerSet</string>
+    <string name="version_0_1_0">Version: 0.1.0</string>
+    <string name="made_with_by_rain">Made with ❤, by Rain</string>
+    <string name="github_repository">GitHub Repository</string>
 </resources>

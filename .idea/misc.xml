@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="module_main/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.211" />
+        <entry key="module_main/src/main/res/drawable/ic_baseline_link_24.xml" value="0.1645" />
         <entry key="module_main/src/main/res/drawable/ic_baseline_search_24.xml" value="0.211" />
         <entry key="module_main/src/main/res/drawable/ic_baseline_vpn_key_24.xml" value="0.211" />
+        <entry key="module_main/src/main/res/layout/activity_about.xml" value="0.26902173913043476" />
         <entry key="module_main/src/main/res/layout/activity_main.xml" value="0.26902173913043476" />
         <entry key="module_main/src/main/res/layout/activity_sticker_set.xml" value="0.26902173913043476" />
         <entry key="module_main/src/main/res/layout/fragment_category.xml" value="0.26902173913043476" />

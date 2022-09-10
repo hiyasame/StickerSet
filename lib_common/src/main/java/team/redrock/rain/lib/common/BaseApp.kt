@@ -1,5 +1,6 @@
 package team.redrock.rain.lib.common
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import androidx.annotation.CallSuper
@@ -14,14 +15,20 @@ import team.redrock.rain.lib.common.BuildConfig
  */
 open class BaseApp : Application() {
   companion object {
-    lateinit var appContext: Context
+    lateinit var app: BaseApp
       private set
+
+    val appContext: Context
+      get() = app
   }
+
+  lateinit var version: String
+    protected set
   
   @CallSuper
   override fun onCreate() {
     super.onCreate()
-    appContext = this
+    app = this
     initARouter()
   }
   

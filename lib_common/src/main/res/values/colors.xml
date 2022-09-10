@@ -18,5 +18,6 @@
     <color name="red">#f44336</color>
     <color name="dark_gray">#424242</color>
     <color name="low_gray">#757575</color>
+    <color name="background">#FAFAFA</color>
 
 </resources>

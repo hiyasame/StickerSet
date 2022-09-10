@@ -26,6 +26,9 @@
         <activity android:name=".screen.stickerset.StickerSetActivity"
             android:exported="true">
         </activity>
+        <activity android:name=".screen.about.AboutActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

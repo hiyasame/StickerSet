@@ -19,7 +19,7 @@ class CategoryFragment :
     MVIFragment<CategoryViewModel, FragmentCategoryBinding, CategoryViewEvent, CategoryViewStates>() {
 
     private val adapter: CategoryRvAdapter = CategoryRvAdapter {
-        StickerSetActivity.start(requireContext(), it)
+        StickerSetActivity.start(requireActivity(), it)
     }
     private var progressBinding: LayoutProgressBarBinding? = null
     private var dialog: AlertDialog? = null

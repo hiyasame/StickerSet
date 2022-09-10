@@ -1,11 +1,13 @@
 package team.redrock.stickerset.main.screen.stickerset
 
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.net.Uri
+import android.transition.Fade
+import android.transition.Visibility
 import android.view.Menu
 import android.view.MenuItem
+import android.view.ViewTreeObserver
+import android.view.animation.OvershootInterpolator
 import androidx.core.content.FileProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,12 +15,12 @@ import es.dmoral.toasty.Toasty
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import team.redrock.rain.lib.common.extensions.appContext
+import team.redrock.rain.lib.common.extensions.makeSceneTransitionAnimation
 import team.redrock.stickerset.main.R
 import team.redrock.stickerset.main.databinding.ActivityStickerSetBinding
 import team.redrock.stickerset.main.model.database.entity.StickerEntity
 import team.redrock.stickerset.main.model.database.entity.StickerSetEntity
 import team.redrock.stickerset.main.mvi.MVIActivity
-import team.redrock.stickerset.main.screen.category.CategoryViewAction
 import team.redrock.stickerset.main.utils.FetchStatus
 import java.io.File
 
@@ -30,6 +32,18 @@ class StickerSetActivity : MVIActivity<StickerSetViewModel, ActivityStickerSetBi
     }
 
     override fun initView() {
+        // 动画
+        window.enterTransition = buildEnterTransition()
+        postponeEnterTransition()
+        val decorView = window.decorView
+        window.decorView.viewTreeObserver.addOnPreDrawListener(object :
+            ViewTreeObserver.OnPreDrawListener {
+            override fun onPreDraw(): Boolean {
+                decorView.viewTreeObserver.removeOnPreDrawListener(this)
+                supportStartPostponedEnterTransition()
+                return true
+            }
+        })
         viewModel.data = data
         binding.rvStickerSet.apply {
             adapter = rvAdapter
@@ -89,7 +103,7 @@ class StickerSetActivity : MVIActivity<StickerSetViewModel, ActivityStickerSetBi
                 viewModel.dispatch(StickerViewAction.DeleteStickerSet)
             }
             android.R.id.home -> {
-                finish()
+                finishAfterTransition()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -109,12 +123,19 @@ class StickerSetActivity : MVIActivity<StickerSetViewModel, ActivityStickerSetBi
         ).let { startActivity(it) }
     }
 
+    private fun buildEnterTransition(): Visibility {
+        val slide = Fade()
+        slide.duration = 500
+        slide.interpolator = OvershootInterpolator(0.5F)
+        return slide
+    }
+
     companion object {
         @JvmStatic
-        fun start(context: Context, entity: StickerSetEntity) {
-            val starter = Intent(context, StickerSetActivity::class.java)
+        fun start(activity: Activity, entity: StickerSetEntity) {
+            val starter = Intent(activity, StickerSetActivity::class.java)
                 .putExtra("data", entity)
-            context.startActivity(starter)
+            activity.startActivity(starter, activity.makeSceneTransitionAnimation())
         }
     }
 }

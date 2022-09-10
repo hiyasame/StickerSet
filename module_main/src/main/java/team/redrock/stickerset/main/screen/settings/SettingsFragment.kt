@@ -10,6 +10,7 @@ import team.redrock.stickerset.main.databinding.FragmentSettingsBinding
 import team.redrock.stickerset.main.databinding.LayoutCategoryDialogBinding
 import team.redrock.stickerset.main.databinding.LayoutSetTokenDialogBinding
 import team.redrock.stickerset.main.mvi.MVIFragment
+import team.redrock.stickerset.main.screen.about.AboutActivity
 import team.redrock.stickerset.main.screen.category.CategoryViewAction
 
 class SettingsFragment:
@@ -20,7 +21,7 @@ class SettingsFragment:
             viewModel.dispatch(SettingsViewAction.EditTokenItemClicked)
         }
         binding.llAbout.setOnClickListener {
-
+            AboutActivity.start(requireActivity())
         }
     }
 
@@ -45,9 +46,6 @@ class SettingsFragment:
                         }
                     }.setNegativeButton("Cancel") { _, _ -> }
                     .show()
-            }
-            SettingsViewEvent.JumpToAboutPage -> {
-
             }
         }
     }
